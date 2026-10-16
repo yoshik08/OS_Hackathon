@@ -1750,13 +1750,14 @@ window.addEventListener('DOMContentLoaded', () => {
   setupWatchdog();
   renderHistoryTable();
 
-  // Initialize Lenis smooth scroll if loaded
+  // Lenis kept for programmatic smooth scroll only - wheel is native instant (no 200-300ms lag)
   if (typeof Lenis !== 'undefined') {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0.35,
+      easing: (t) => t,
       direction: 'vertical',
-      smooth: true
+      smooth: true,
+      smoothWheel: false
     });
     function raf(time) {
       lenis.raf(time);
