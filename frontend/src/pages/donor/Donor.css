@@ -1,0 +1,180 @@
+/* ═══════════════════════════════════════════════
+   Donor Portal — Overview & shared styles
+   ═══════════════════════════════════════════════ */
+
+/* ── Impact banner ── */
+.donor-impact {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  background: linear-gradient(115deg, var(--crimson-dark) 0%, var(--crimson) 55%, #d41f3f 100%);
+  color: #fff;
+  padding: 2.2rem 2.4rem;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 18px 44px rgba(179, 18, 47, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.donor-impact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(560px 280px at 85% 0%, rgba(255, 255, 255, 0.14), transparent 60%);
+  pointer-events: none;
+}
+
+.donor-impact__main { position: relative; z-index: 1; max-width: 34rem; }
+
+.donor-impact__label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.donor-impact__number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0.3rem 0 0.2rem;
+}
+
+.donor-impact__sub { opacity: 0.9; font-size: 0.98rem; margin-bottom: 1.4rem; }
+
+.donor-impact__milestone { margin-bottom: 1.6rem; max-width: 26rem; }
+
+.donor-impact__milestone-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  opacity: 0.95;
+}
+
+.donor-impact__milestone-top .meta { gap: 0.4rem; }
+
+.donor-impact__track {
+  height: 9px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+}
+
+.donor-impact__fill {
+  height: 100%;
+  border-radius: 99px;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+.donor-impact__watermark {
+  width: 190px;
+  height: 190px;
+  color: rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Two-column layout ── */
+.donor-cols {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.donor-cols .card { margin-bottom: 0; }
+
+/* ── Eligibility tracker ── */
+.elig { display: flex; gap: 0.9rem; align-items: flex-start; margin-bottom: 1.2rem; }
+
+.elig__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.elig--ok .elig__icon { background: var(--green-tint); color: var(--green); }
+.elig--wait .elig__icon { background: var(--amber-tint); color: var(--amber); }
+
+.elig__title { font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
+.elig__sub { font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.2rem; }
+
+.elig__bar-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 0.45rem;
+}
+
+.elig__track {
+  height: 10px;
+  border-radius: 99px;
+  background: var(--line-soft);
+  overflow: hidden;
+}
+
+.elig__fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--amber), #d97706);
+  transition: width 0.6s ease;
+}
+
+.elig__fill--full { background: linear-gradient(90deg, var(--green), #22a06b); }
+
+.elig__bar-bottom { font-size: 0.76rem; color: var(--ink-faint); margin-top: 0.45rem; }
+
+/* ── Request rows ── */
+.req-list { display: flex; flex-direction: column; }
+
+.req-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.req-row:last-child { border-bottom: none; padding-bottom: 0; }
+.req-row:first-child { padding-top: 0; }
+
+.req-row__main { min-width: 0; }
+
+.req-row__top { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.35rem; }
+
+.req-row__hospital { font-weight: 600; font-size: 0.92rem; }
+
+.req-row__meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.req-row__done { font-size: 0.84rem; color: var(--green); font-weight: 600; white-space: nowrap; }
+
+/* ── History summary ── */
+.donor-history-summary { margin-bottom: 1.4rem; }
+
+@media (max-width: 900px) {
+  .donor-cols { grid-template-columns: 1fr; }
+  .donor-impact__watermark { display: none; }
+  .donor-impact { padding: 1.8rem; }
+}
